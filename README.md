@@ -24,7 +24,11 @@ This pseudo lenguage have a three instructions
 - ADD [number] Add a number to stack. Example:
   ```ADD 1```
 - SUM Add up the two last numbers in the stack and put the result in the top of stack. Example ```SUM```
+- SUB Substract up the two last numbers in the stack and put the result in the top of stack. Example ```SUB```
+- MUL Multiply up the two last numbers in the stack and put the result in the top of stack. Example ```MUL```
 - GET get the last number in the stack. Example ```GET```
+- DEL delete the last number in the stack. Example ```DEL```
+- EXIT Exit of the program. Example ```EXIT```
   
 ## Example of program
 Add two numbers and show it
@@ -37,7 +41,5 @@ Add two numbers and show it
 
 
 # TODO
-- Add operation of subtract
-- Add operation of multiply
 - Add operation of divide
 - Add registers of memory
