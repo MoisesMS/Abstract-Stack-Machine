@@ -24,19 +24,50 @@ def compiler(order):
     else:
       print(stack[-1])
   elif order.startswith("SUM"):
-    if len(stack) < 2:
-      print(msg_less_two_numbers)
-    else:
-      sum = stack.pop() + stack.pop()
-      stack.append(sum)
+    operations("SUM")
   elif order.startswith("SUB"):
-    if len(stack) < 2:
-      print(msg_less_two_numbers)
-    else:
-      sub = stack.pop() - stack.pop()
-      stack.append(sub)
+    operations("SUB")
+  elif order.startswith("MUL"):
+    operations("MUL")
   else:
     print("El comando no existe.")
+
+
+def mathematic_operations(operator):
+  if operator == "SUM":
+    sum = stack[-2] + stack[-1]
+    stack.pop()
+    stack.pop()
+    stack.append(sum)
+  elif operator == "SUB":
+    sum = stack[-2] - stack[-1]
+    stack.pop()
+    stack.pop()
+    stack.append(sum)
+  elif operator == "MUL":
+    sum = stack[-2] * stack[-1]
+    stack.pop()
+    stack.pop()
+    stack.append(sum)
+
+
+def operations(operator):
+  if operator == "SUM":
+    if len(stack) < 2:
+      print(msg_less_two_numbers)
+    else:
+      mathematic_operations("SUM")
+  elif operator == "SUB":
+    if len(stack) < 2:
+      print(msg_less_two_numbers)
+    else:
+      mathematic_operations("SUB")
+  elif operator == "MUL":
+    if len(stack) < 2:
+      print(msg_less_two_numbers)
+    else:
+      mathematic_operations("MUL")
+
 
 parser = argparse.ArgumentParser(description="Recibe un archivo por parametro")
 parser.add_argument("file", type=str, nargs="?", help="Archivo con el código")
