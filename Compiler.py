@@ -39,15 +39,12 @@ arg = parser.parse_args()
 
 if arg.file:
 
-  if arg.file.endswith(".a"):
-    #Leer archivo
-    with open(arg.file, "r") as file:
-      lines = file.readlines()
+  #Leer archivo
+  with open(arg.file, "r") as file:
+    lines = file.readlines()
 
-      for line in lines:
-        compiler(line)
-  else:
-    print("Archivo no reconocido")
+    for line in lines:
+      compiler(line)
 else:
   while True:
     compiler(input(">>> "))
