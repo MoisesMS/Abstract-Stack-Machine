@@ -7,6 +7,7 @@ import argparse
 # Pila de memoria
 stack = []
 msg_less_two_numbers = "No hay suficientes números en la pila."
+msg_empty_stack = "Empty stack"
 
 def compiler(order):
   if order == "EXIT":
@@ -20,7 +21,7 @@ def compiler(order):
       print("El dato insertado no es válido.")
   elif order.startswith("GET"):
     if len(stack) == 0:
-      print("La pila está vacía.")
+      print(msg_empty_stack)
     else:
       print(stack[-1])
   elif order.startswith("SUM"):
@@ -29,6 +30,11 @@ def compiler(order):
     operations("SUB")
   elif order.startswith("MUL"):
     operations("MUL")
+  elif order.startswith("DEL"):
+    if len(stack) == 0:
+      print(msg_empty_stack)
+    else:
+      stack.pop()
   else:
     print("El comando no existe.")
 
