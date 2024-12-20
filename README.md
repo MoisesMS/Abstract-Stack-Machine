@@ -43,9 +43,3 @@ Add two numbers and show it
 # TODO
 - Add operation of divide
 - Add registers of memory
-
-# TODO
-- Add operation of subtract
-- Add operation of multiply
-- Add operation of divide
-- Add registers of memory
