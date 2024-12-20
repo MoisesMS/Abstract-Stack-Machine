@@ -6,6 +6,9 @@ import argparse
 
 # Pila de memoria
 stack = []
+
+commands = ["ADD", "SUB", "MUL", "SUM", "EXIT", "DEL", "GET"]
+
 msg_less_two_numbers = "No hay suficientes números en la pila."
 msg_empty_stack = "Empty stack"
 
@@ -35,8 +38,6 @@ def compiler(order):
       print(msg_empty_stack)
     else:
       stack.pop()
-  else:
-    print("El comando no existe.")
 
 
 def mathematic_operations(operator):
@@ -74,21 +75,27 @@ def operations(operator):
     else:
       mathematic_operations("MUL")
 
-
 parser = argparse.ArgumentParser(description="Recibe un archivo por parametro")
 parser.add_argument("file", type=str, nargs="?", help="Archivo con el código")
 
 arg = parser.parse_args()
-    
+
 
 if arg.file:
 
   #Leer archivo
   with open(arg.file, "r") as file:
     lines = file.readlines()
-
     for line in lines:
-      compiler(line)
+      if line:
+        compiler(line)
+      
 else:
   while True:
-    compiler(input(">>> "))
+    command = input(">>> ")
+    for com in commands:
+      if command.startswith(com):
+        compiler(command)
+        break
+    else:
+      print("Command not found")
