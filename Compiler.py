@@ -6,6 +6,7 @@ import argparse
 
 # Pila de memoria
 stack = []
+msg_less_two_numbers = "No hay suficientes números en la pila."
 
 def compiler(order):
   if order == "EXIT":
@@ -24,10 +25,16 @@ def compiler(order):
       print(stack[-1])
   elif order.startswith("SUM"):
     if len(stack) < 2:
-      print("No hay suficientes elementos para sumar")
+      print(msg_less_two_numbers)
     else:
       sum = stack.pop() + stack.pop()
       stack.append(sum)
+  elif order.startswith("SUB"):
+    if len(stack) < 2:
+      print(msg_less_two_numbers)
+    else:
+      sub = stack.pop() - stack.pop()
+      stack.append(sub)
   else:
     print("El comando no existe.")
 
