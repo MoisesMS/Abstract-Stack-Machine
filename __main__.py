@@ -57,20 +57,25 @@ def compiler(order):
 def mathematic_operations(operator):
   if operator == "SUM":
     sum = stack[-2] + stack[-1]
-    stack.pop()
-    stack.pop()
-    stack.append(sum)
+    add_result(sum)
   elif operator == "SUB":
-    sum = stack[-2] - stack[-1]
-    stack.pop()
-    stack.pop()
-    stack.append(sum)
+    sub = stack[-2] - stack[-1]
+    add_result(sub)
   elif operator == "MUL":
-    sum = stack[-2] * stack[-1]
-    stack.pop()
-    stack.pop()
-    stack.append(sum)
+    div = stack[-2] * stack[-1]
+    add_result(div)
+  elif operator == "DIV":
+    if stack[-1] == 0:
+      print("No se puede dividir por cero.")
+    else:
+      div = stack[-2] / stack[-1]
+      add_result(div)
 
+# Elimina los dos últimos elementos de la pila y añade el resultado
+def add_result(data):
+  stack.pop()
+  stack.pop()
+  stack.append(data)
 
 def operations(operator):
   if operator == "SUM":
@@ -88,6 +93,11 @@ def operations(operator):
       print(msg_less_two_numbers)
     else:
       mathematic_operations("MUL")
+  elif operator == "DIV":
+    if len(stack) < 2:
+      print(msg_less_two_numbers)
+    else:
+      mathematic_operations("DIV")
 
 
 parser = argparse.ArgumentParser(description="Recibe un archivo por parametro")
