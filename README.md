@@ -9,7 +9,7 @@ This is a simulator of a compiler for a pseudo lenguage writted in Python
 
 - Run the project
 ```
-  python3 PseudoCompiler
+  python3 Abstract-Stack-Maachine
 ```
 
 
