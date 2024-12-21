@@ -37,6 +37,8 @@ def compiler(order):
     operations("SUB")
   elif order.startswith("MUL"):
     operations("MUL")
+  elif order.startswith("DIV"):
+    operations("DIV")
   elif order.startswith("ASIGNA"):
     var_values[var_name] = stack[-1]
     stack.pop()
@@ -49,6 +51,8 @@ def compiler(order):
       print(msg_empty_stack)
     else:
       stack.pop()
+  elif order.startswith("SWAP"):
+    operations("SWAP")
   else:
     print(order)
     print("El comando no existe.")
@@ -98,6 +102,13 @@ def operations(operator):
       print(msg_less_two_numbers)
     else:
       mathematic_operations("DIV")
+  elif operator == "SWAP":  # Intercambia los dos últimos elementos de la pila
+    if len(stack) < 2:
+      print(msg_less_two_numbers)
+    else:
+      tmp_data = stack[-1]
+      stack[-1] = stack[-2]
+      stack[-2] = tmp_data
 
 
 parser = argparse.ArgumentParser(description="Recibe un archivo por parametro")
