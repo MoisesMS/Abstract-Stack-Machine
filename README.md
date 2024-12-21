@@ -7,16 +7,11 @@ This is a simulator of a compiler for a pseudo lenguage writted in Python
   git clone https://github.com/MoisesMS/PseudoCompiler.git
 ```
 
-- Go to the project
+- Run the project
 ```
-  cd PseudoCompiler
+  python3 PseudoCompiler
 ```
 
-- Run by adding the program as an argument
-  
-```
-  Compiler.py program
-```
 
 # How to program
 
